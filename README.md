@@ -1,32 +1,27 @@
 # 🔲 QR Code Generator
 
-A lightweight and user-friendly QR Code Generator built with Python and Tkinter.
+A lightweight, cross-platform QR Code Generator built with Python and Tkinter.
 
-The application provides a graphical interface for generating QR codes from text, URLs, or any other information. It includes customizable QR colors, error correction settings, a responsive QR preview, and options to save the generated QR code and open its containing folder.
-
-The application is designed to work across Linux, Windows, and macOS.
+Generate QR codes from text, URLs, and other information with customizable colors, error correction, responsive previews, and simple save and folder-opening options.
 
 ---
 
 ## ✨ Features
 
 - Generate QR codes from text or URLs
-- Graphical user interface using Tkinter
-- Automatic Python virtual environment setup
-- Automatic installation of required Python packages
-- Custom foreground color
-- Custom background color
-- Multiple QR error-correction levels
-- Responsive QR preview
-- Automatic QR scaling based on window size
-- Dedicated QR preview screen
+- Clean graphical interface using Tkinter
+- Custom foreground and background colors
+- Four QR error-correction levels
+- Responsive QR code preview
+- QR preview shown only after generation
 - Save QR codes as PNG or JPEG
-- Automatically adds `.png` extension when required
+- Automatic `.png` extension when no image extension is provided
 - Open the folder containing the saved QR code
 - Back button to return to the generator
 - Clear form functionality
-- Cross-platform folder opening
-- No manual virtual environment activation required
+- Automatic virtual environment setup
+- Automatic dependency installation
+- Cross-platform support for Linux, Windows, and macOS
 
 ---
 
@@ -36,35 +31,48 @@ The application is designed to work across Linux, Windows, and macOS.
 Start Application
        │
        ▼
-┌──────────────────────┐
-│   Generator Screen   │
-│                      │
-│   Text / URL         │
-│   File Name          │
-│   QR Colors          │
-│   Error Correction   │
-│                      │
-│   [ Generate QR ]    │
-│   [ Clear ]          │
-└──────────┬───────────┘
-           │
-           ▼
-     Generate QR
-           │
-           ▼
-┌──────────────────────┐
-│   QR Preview Screen  │
-│                      │
-│      QR CODE         │
-│                      │
-│   [ Save QR ]        │
-│   [ Open Folder ]    │
-│                      │
-│      [ ← Back ]      │
-└──────────────────────┘
-````
+┌─────────────────────────┐
+│    Generator Screen     │
+│                         │
+│  Text / URL             │
+│  File Name              │
+│  QR Colors              │
+│  Error Correction       │
+│                         │
+│  [ Generate QR ]        │
+│  [ Clear ]              │
+└────────────┬────────────┘
+             │
+             ▼
+        Generate QR
+             │
+             ▼
+┌─────────────────────────┐
+│     QR Preview Screen   │
+│                         │
+│         QR CODE         │
+│                         │
+│  [ Save QR ]            │
+│  [ Open Folder ]        │
+│  [ ← Back ]             │
+└─────────────────────────┘
+```
 
-The QR preview is displayed only after a QR code has been successfully generated.
+---
+
+## 🖼️ Screenshots
+
+### Generator Screen
+
+The main screen allows users to enter text or a URL, choose a filename, customize QR colors, select error correction, and generate the QR code.
+
+![QR Code Generator - Generator Screen](screenshots/generator-screen.png)
+
+### QR Preview Screen
+
+After generating the QR code, the application displays it in a dedicated preview screen with options to save the QR code, open its folder, or return to the generator.
+
+![QR Code Generator - QR Preview](screenshots/qr-preview.png)
 
 ---
 
@@ -72,7 +80,7 @@ The QR preview is displayed only after a QR code has been successfully generated
 
 ### Foreground Color
 
-Controls the color of the QR code itself.
+Controls the color of the QR code.
 
 Default:
 
@@ -82,7 +90,7 @@ Black
 
 ### Background Color
 
-Controls the background of the QR code.
+Controls the QR code background.
 
 Default:
 
@@ -92,20 +100,18 @@ White
 
 ### Error Correction
 
-| Level    | Approximate Recovery |
-| -------- | -------------------: |
-| Low      |                   7% |
-| Medium   |                  15% |
-| Quartile |                  25% |
-| High     |                  30% |
+| Level | Recovery Capacity |
+|-------|------------------:|
+| Low | 7% |
+| Medium | 15% |
+| Quartile | 25% |
+| High | 30% |
 
 ---
 
 ## 📱 Responsive QR Preview
 
-After generating a QR code, the application opens a dedicated preview screen.
-
-The QR code automatically adjusts its size according to the available window space.
+The QR preview automatically adjusts its size according to the available application window.
 
 ```text
 Small Window
@@ -133,7 +139,7 @@ JPEG
 Example:
 
 ```text
-qr_code.png
+GitHub_QR.png
 ```
 
 If a filename is entered without an image extension, `.png` is automatically added.
@@ -166,10 +172,10 @@ The application automatically manages its Python environment.
 
 On startup it:
 
-1. Checks for a virtual environment.
-2. Creates `.venv` if required.
-3. Restarts itself using the virtual environment.
-4. Checks for required Python packages.
+1. Checks whether a virtual environment exists.
+2. Creates `.venv` when required.
+3. Restarts using the virtual environment.
+4. Checks for required packages.
 5. Installs missing packages.
 6. Starts the application.
 
@@ -177,35 +183,22 @@ On startup it:
 
 ## 📦 Dependencies
 
-* Python 3
-* Tkinter
-* qrcode
-* Pillow
+- Python 3
+- Tkinter
+- qrcode
+- Pillow
 
-The QR Code library and Pillow are installed automatically when required.
+The main Python dependency is:
 
-Manual installation:
-
-```bash
-python -m pip install "qrcode[pil]"
+```text
+qrcode[pil]
 ```
-
----
-
-## 🚀 Requirements
-
-* Python 3
-* Tkinter
-* Windows, Linux, or macOS
-* Internet connection during the first automatic dependency installation
 
 ---
 
 # 🐧 Linux
 
 ## Ubuntu / Debian
-
-Install Python, virtual-environment support, and Tkinter:
 
 ```bash
 sudo apt update
@@ -216,17 +209,7 @@ Clone the repository:
 
 ```bash
 git clone git@github.com:devyansh9332/qr-code-generator.git
-```
-
-Enter the project directory:
-
-```bash
 cd qr-code-generator
-```
-
-Run:
-
-```bash
 python3 qr_generator.py
 ```
 
@@ -234,27 +217,15 @@ python3 qr_generator.py
 
 ## Fedora
 
-Install Python and Tkinter:
-
 ```bash
 sudo dnf install python3 python3-tkinter -y
 ```
 
-Clone the repository:
+Clone and run:
 
 ```bash
 git clone git@github.com:devyansh9332/qr-code-generator.git
-```
-
-Enter the project directory:
-
-```bash
 cd qr-code-generator
-```
-
-Run:
-
-```bash
 python3 qr_generator.py
 ```
 
@@ -264,7 +235,7 @@ python3 qr_generator.py
 
 ## 1. Install Python
 
-Install Python 3 and make sure **Add Python to PATH** is enabled during installation.
+Install Python 3 and enable **Add Python to PATH** during installation.
 
 ## 2. Clone the Repository
 
@@ -280,13 +251,13 @@ Or HTTPS:
 git clone https://github.com/devyansh9332/qr-code-generator.git
 ```
 
-Enter the project directory:
+Enter the project:
 
 ```bash
 cd qr-code-generator
 ```
 
-## 3. Run
+Run:
 
 ```bash
 python qr_generator.py
@@ -298,29 +269,17 @@ The application automatically creates the virtual environment and installs the r
 
 # 🍎 macOS
 
-## 1. Install Python
-
-Using Homebrew:
+Install Python using Homebrew:
 
 ```bash
 brew install python
 ```
 
-## 2. Clone the Repository
+Clone and run:
 
 ```bash
 git clone git@github.com:devyansh9332/qr-code-generator.git
-```
-
-Enter the project directory:
-
-```bash
 cd qr-code-generator
-```
-
-## 3. Run
-
-```bash
 python3 qr_generator.py
 ```
 
@@ -352,49 +311,17 @@ python qr_generator.py
 
 ```bash
 python3 -m venv .venv
-```
-
-Activate:
-
-```bash
 source .venv/bin/activate
-```
-
-Install dependencies:
-
-```bash
-python -m pip install "qrcode[pil]"
-```
-
-Run:
-
-```bash
+python -m pip install -r requirements.txt
 python qr_generator.py
 ```
 
 ## Windows
 
-Create the virtual environment:
-
 ```powershell
 python -m venv .venv
-```
-
-Activate:
-
-```powershell
 .venv\Scripts\activate
-```
-
-Install dependencies:
-
-```powershell
-python -m pip install "qrcode[pil]"
-```
-
-Run:
-
-```powershell
+python -m pip install -r requirements.txt
 python qr_generator.py
 ```
 
@@ -410,11 +337,12 @@ qr-code-generator/
 ├── README.md
 ├── .gitignore
 │
-└── .venv/
-    └── Python virtual environment
+└── screenshots/
+    ├── generator-screen.png
+    └── qr-preview.png
 ```
 
-The `.venv` directory is created automatically and should not be committed to Git.
+The `.venv/` directory is created automatically and should not be committed to the repository.
 
 ---
 
@@ -424,7 +352,7 @@ The `.venv` directory is created automatically and should not be committed to Gi
 qrcode[pil]
 ```
 
-Install dependencies manually:
+Install dependencies with:
 
 ```bash
 python -m pip install -r requirements.txt
@@ -434,41 +362,41 @@ python -m pip install -r requirements.txt
 
 # 🛠️ Technologies Used
 
-* Python 3
-* Tkinter
-* qrcode
-* Pillow
-* pathlib
-* subprocess
-* platform
-* os
-* Git
+- Python 3
+- Tkinter
+- qrcode
+- Pillow
+- pathlib
+- subprocess
+- platform
+- os
+- Git
 
 ---
 
 # 🧠 Concepts Demonstrated
 
-* Object-oriented programming
-* Classes and methods
-* Functions
-* Conditional statements
-* Exception handling
-* File handling
-* Directory handling
-* Path management
-* Virtual environment management
-* Package installation
-* GUI development
-* Tkinter widgets
-* Event handling
-* Color selection
-* Image processing
-* QR code generation
-* Dynamic image resizing
-* Operating-system detection
-* Cross-platform commands
-* Subprocess execution
-* User input validation
+- Object-oriented programming
+- Classes and methods
+- Functions
+- Conditional statements
+- Exception handling
+- File handling
+- Directory handling
+- Path management
+- Virtual environment management
+- Package installation
+- GUI development
+- Tkinter widgets
+- Event handling
+- Color selection
+- Image processing
+- QR code generation
+- Dynamic image resizing
+- Operating-system detection
+- Cross-platform commands
+- Subprocess execution
+- User input validation
 
 ---
 
@@ -476,16 +404,16 @@ python -m pip install -r requirements.txt
 
 The application handles common situations including:
 
-* Missing Python packages
-* Virtual environment creation failures
-* Missing Tkinter
-* Invalid QR generation
-* Missing input
-* Failed QR saving
-* Failed folder opening
-* Unsupported environment configuration
+- Missing Python packages
+- Virtual environment creation failures
+- Missing Tkinter
+- Invalid QR generation
+- Empty input
+- Failed QR saving
+- Failed folder opening
+- Unsupported environment configuration
 
-Users receive graphical error or warning messages when an operation cannot be completed.
+Users receive appropriate graphical messages when an operation cannot be completed.
 
 ---
 
@@ -500,10 +428,10 @@ https://github.com/devyansh9332
 Choose a filename:
 
 ```text
-github.png
+GitHub_QR.png
 ```
 
-Select the desired:
+Customize:
 
 ```text
 Foreground Color
@@ -517,9 +445,9 @@ Click:
 Generate QR
 ```
 
-The application opens the QR preview screen.
+The QR preview screen opens.
 
-From there:
+Available actions:
 
 ```text
 ← Back
@@ -527,43 +455,37 @@ Save QR
 Open Folder
 ```
 
-are available.
-
 ---
 
 # 🔮 Future Improvements
 
-* QR code history
-* Copy QR image to clipboard
-* Drag-and-drop support
-* Batch QR generation
-* Wi-Fi QR generation
-* Contact/vCard QR generation
-* Email QR generation
-* SMS QR generation
-* Phone number QR generation
-* Custom QR borders
-* QR logo support
-* QR templates
-* Dark/light application themes
-* Export settings
-* Keyboard shortcuts
-* Recent QR codes
-* QR code sharing
-* Custom output directory
-* Standalone executable builds
+- QR code history
+- Copy QR image to clipboard
+- Drag-and-drop support
+- Batch QR generation
+- Wi-Fi QR generation
+- Contact/vCard QR generation
+- Email QR generation
+- SMS QR generation
+- Phone number QR generation
+- Custom QR borders
+- QR logo support
+- QR templates
+- Dark/light application themes
+- Keyboard shortcuts
+- Recent QR codes
+- QR code sharing
+- Custom output directory
+- Standalone executable builds
 
 ---
 
 # ⚠️ Notes
 
-The application requires Tkinter for the graphical interface.
-
-On Linux systems where Tkinter is not installed, the application attempts to install the appropriate package automatically.
-
-An internet connection may be required during the first run to install missing Python packages.
-
-Generated QR images are saved only when the user chooses the **Save QR** option.
+- Tkinter is required for the graphical interface.
+- An internet connection may be required during the first run to install missing Python packages.
+- Generated QR images are saved only when the **Save QR** option is used.
+- The `.venv/` directory should not be committed to the repository.
 
 ---
 
@@ -576,9 +498,3 @@ Generated QR images are saved only when the user chooses the **Save QR** option.
 # 📜 License
 
 This project is open source and available for personal and educational use.
-
----
-
-## ⭐ Project
-
-If you find this project useful, consider giving the repository a star on GitHub.
